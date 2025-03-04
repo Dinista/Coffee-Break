@@ -1,0 +1,5 @@
+Django
+django-ninja
+django-ninja-jwt[crypto]
+django-cors-headers
+rav

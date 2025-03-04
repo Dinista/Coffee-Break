@@ -1,0 +1,19 @@
+scripts:
+  server:
+    - cd src && python manage.py runserver 8001
+  makemigrations:
+    - cd src && python manage.py makemigrations
+  migrate:
+    - cd src && python manage.py migrate
+  shell:
+    - cd src && python manage.py shell
+  createsuperuser:
+    - cd src && python manage.py createsuperuser
+
+  enterenv:
+    - venv/Scripts/Activate.ps1
+  install:
+    - pip install -r requirements.txt
+  curl_auth_w:
+    - >-
+      curl -X POST -H "Content-Type: application/json" -d "{\"username\": \"user\", \"password\": \"xxzLb5xny8MJu.x\"}" http://127.0.0.1:8001/api/token/pair

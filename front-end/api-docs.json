@@ -1,0 +1,267 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "NinjaExtraAPI", "version": "1.0.0", "description": "" },
+  "paths": {
+    "/api/accounts/signup/": {
+      "post": {
+        "operationId": "accounts_api_signup",
+        "summary": "Signup",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TokenResponse" }
+              }
+            }
+          }
+        },
+        "tags": ["authenticate"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserCreateSchema" }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    "/api/accounts/login/": {
+      "post": {
+        "operationId": "accounts_api_login",
+        "summary": "Login",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TokenResponse" }
+              }
+            }
+          }
+        },
+        "tags": ["authenticate"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UserLoginSchema" }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    "/api/waitlists/": {
+      "post": {
+        "operationId": "waitlists_api_create_entry",
+        "summary": "Create Entry",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WaitlistEntryDetailSchema"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["waitlist"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WaitlistEntryCreateSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [{ "JWTAuth": [] }]
+      },
+      "get": {
+        "operationId": "waitlists_api_list_waitlist_entries",
+        "summary": "List Waitlist Entries",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/WaitlistEntryListSchema"
+                  },
+                  "title": "Response",
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["waitlist"],
+        "security": [{ "JWTAuth": [] }]
+      }
+    },
+    "/api/waitlists/{entry_id}": {
+      "put": {
+        "operationId": "waitlists_api_update_entry",
+        "summary": "Update Entry",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entry_id",
+            "schema": { "title": "Entry Id", "type": "integer" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WaitlistEntryDetailSchema"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["waitlist"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WaitlistEntryListSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "security": [{ "JWTAuth": [] }]
+      },
+      "delete": {
+        "operationId": "waitlists_api_delete_entry",
+        "summary": "Delete Entry",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entry_id",
+            "schema": { "title": "Entry Id", "type": "integer" },
+            "required": true
+          }
+        ],
+        "responses": { "200": { "description": "OK" } },
+        "tags": ["waitlist"],
+        "security": [{ "JWTAuth": [] }]
+      },
+      "get": {
+        "operationId": "waitlists_api_get_waitlist_entry",
+        "summary": "Get Waitlist Entry",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entry_id",
+            "schema": { "title": "Entry Id", "type": "integer" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WaitlistEntryDetailSchema"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["waitlist"],
+        "security": [{ "JWTAuth": [] }]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TokenResponse": {
+        "properties": {
+          "email": { "title": "Email", "type": "string" },
+          "refresh": { "title": "Refresh", "type": "string" },
+          "access": { "title": "Access", "type": "string" }
+        },
+        "required": ["email", "refresh", "access"],
+        "title": "TokenResponse",
+        "type": "object"
+      },
+      "UserCreateSchema": {
+        "properties": {
+          "username": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Username"
+          },
+          "email": { "title": "Email", "type": "string" },
+          "phone_number": {
+            "anyOf": [{ "type": "string" }, { "type": "null" }],
+            "title": "Phone Number"
+          },
+          "password": { "title": "Password", "type": "string" }
+        },
+        "required": ["email", "password"],
+        "title": "UserCreateSchema",
+        "type": "object"
+      },
+      "UserLoginSchema": {
+        "properties": {
+          "email": { "title": "Email", "type": "string" },
+          "password": { "title": "Password", "type": "string" }
+        },
+        "required": ["email", "password"],
+        "title": "UserLoginSchema",
+        "type": "object"
+      },
+      "WaitlistEntryDetailSchema": {
+        "properties": {
+          "id": { "title": "Id", "type": "integer" },
+          "email": { "title": "Email", "type": "string" },
+          "updated": {
+            "format": "date-time",
+            "title": "Updated",
+            "type": "string"
+          },
+          "timestamp": {
+            "format": "date-time",
+            "title": "Timestamp",
+            "type": "string"
+          }
+        },
+        "required": ["id", "email", "updated", "timestamp"],
+        "title": "WaitlistEntryDetailSchema",
+        "type": "object"
+      },
+      "WaitlistEntryCreateSchema": {
+        "properties": { "email": { "title": "Email", "type": "string" } },
+        "required": ["email"],
+        "title": "WaitlistEntryCreateSchema",
+        "type": "object"
+      },
+      "WaitlistEntryListSchema": {
+        "properties": {
+          "id": { "title": "Id", "type": "integer" },
+          "email": { "title": "Email", "type": "string" }
+        },
+        "required": ["id", "email"],
+        "title": "WaitlistEntryListSchema",
+        "type": "object"
+      }
+    },
+    "securitySchemes": { "JWTAuth": { "type": "http", "scheme": "bearer" } }
+  },
+  "servers": []
+}
