@@ -27,6 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (result && result.access && result.refresh) {
             return {
               id: "",
+              username: result.username,
               email: result.email,
               accessToken: result.access,
               refreshToken: result.refresh,
@@ -44,4 +45,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      session.user.email = token.email ?? "";
+      session.user.name = token.name ?? "User";
+      return session;
+    },
+  },
 });
