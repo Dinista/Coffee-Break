@@ -193,10 +193,11 @@
       "TokenResponse": {
         "properties": {
           "email": { "title": "Email", "type": "string" },
+          "username": { "title": "Username", "type": "string" },
           "refresh": { "title": "Refresh", "type": "string" },
           "access": { "title": "Access", "type": "string" }
         },
-        "required": ["email", "refresh", "access"],
+        "required": ["email", "username", "refresh", "access"],
         "title": "TokenResponse",
         "type": "object"
       },
