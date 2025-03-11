@@ -5,6 +5,7 @@ import { Mail, Key } from "lucide-react";
 
 import { useNotification } from "@/context/notificationcontext";
 import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 type Inputs = {
   email: string;
@@ -22,12 +23,14 @@ export const Form = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const result = await signIn("credentials", { ...data, redirect: false });
+
     if (result?.error) {
       showNotification("Invalid Credentials. Try Again!", "error");
       resetField("password");
     }
     if (!result?.error) {
-      showNotification("Welcome! It's good to have you back", "success");
+      showNotification("Welcome back!", "success");
+      redirect(`/dashboard`);
     }
   };
 
@@ -162,7 +165,7 @@ export const Form = () => {
         </a>
       </div>
       <span className="text-center text-xs text-slate-950">
-        @2025 - Im Still Here
+        @2025 - Bring It back
       </span>
     </div>
   );

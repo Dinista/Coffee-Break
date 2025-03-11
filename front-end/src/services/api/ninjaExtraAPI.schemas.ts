@@ -40,5 +40,6 @@ export interface TokenResponse {
   access: string;
   email: string;
   refresh: string;
+  username: string;
 }
 
