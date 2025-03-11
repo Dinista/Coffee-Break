@@ -10,7 +10,7 @@ router = Router(tags=["authenticate"])
 @router.post("/signup/", response=TokenResponse)
 def signup(request, payload: UserCreateSchema):
     user = CustomUser.objects.create_user(
-        username=payload.email,
+        username=payload.username,
         email=payload.email,
         phone_number=payload.phone_number,
     )

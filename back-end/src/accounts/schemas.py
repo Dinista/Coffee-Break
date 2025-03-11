@@ -17,6 +17,7 @@ class UserLoginSchema(Schema):
 
 class TokenResponse(Schema):
     email: str
+    username: str
     refresh: str
     access: str
 
