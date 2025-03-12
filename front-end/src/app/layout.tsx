@@ -24,7 +24,7 @@ const zainSans = Nunito({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin"], // font
 });
 
 export const metadata: Metadata = {
