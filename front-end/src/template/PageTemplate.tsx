@@ -1,10 +1,5 @@
+import { DynamicBreadcrumbs } from "@/components/dynamicbreadcrumb";
 import SideBar from "@/components/sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-} from "@/components/ui/breadcrumb";
 import React from "react";
 
 type TemplateProps = {
@@ -15,15 +10,20 @@ export const PageTemplate = ({ children }: TemplateProps) => {
   return (
     <div className="flex items-center justify-center">
       <SideBar>
-        <div className="bg-background min-h-screen">
-          <div className="bg-sidebar h-full p-6">
-            <Breadcrumb>
+        <div className="flex bg-background min-h-screen ">
+          <div className="bg-sidebar w-full h-full px-6">
+            <DynamicBreadcrumbs />
+            {/* <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
                 </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbLink href="/sales">Sales</BreadcrumbLink>
+                </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb>
+            </Breadcrumb> */}
             {children}
           </div>
         </div>

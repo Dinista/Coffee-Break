@@ -13,7 +13,7 @@ export default function Dashboard() {
   };
   return (
     <PageTemplate>
-      <button onClick={upload}>fdasfsdfasd</button>
+      {/* <button onClick={upload}>fdasfsdfasd</button> */}
       <div className="">
         <div className="w-full flex flex-col gap-2 font-bold">
           <h1>Your statics, all in one place.</h1>

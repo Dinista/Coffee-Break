@@ -9,6 +9,8 @@ scripts:
     - cd src && python manage.py shell
   createsuperuser:
     - cd src && python manage.py createsuperuser
+  startapp:
+    - cd src && python manage.py startapp flow
 
   enterenv:
     - venv/Scripts/Activate.ps1

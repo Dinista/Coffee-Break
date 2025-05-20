@@ -27,7 +27,7 @@ export function CardMetric({
 
   return (
     <Card className="w-full flex items-center justify-center px-5">
-      <div className="text-3xl pr-3 font-extrabold text-blue-700 border-r-2 border-gray-300">
+      <div className="text-3xl pr-3 font-extrabold text-blue-700 dark:text-blue-400 border-r-2 border-gray-300">
         ${formatNumber(value)}
       </div>
       <div>
