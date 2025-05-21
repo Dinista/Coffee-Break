@@ -1,5 +1,5 @@
 <div style="display: 'flex'; flex-direction: 'column';"> 
-  <img style="width: 245px; height: 109px;" src="" />
+  <img style="width: 245px; height: 109px;" src="https://raw.githubusercontent.com/Dinista/Coffee-Break/3abd11b37447ab6240957b663c4e44ec4c3c1b69/front-end/public/coffee.svg" />
 </div>
 
 ### Coffee Break
@@ -9,8 +9,8 @@ A robust platform for managing products, customers, and sales — **powered by M
 This system streamlines inventory management, enhances sales tracking, and leverages data-driven insights with interactive dashboards and predictive modeling.
 
 <p align="center">
-  <img width="400" height="453" src="" />
-  <img width="400" height="453" src="" />
+  <img width="500" height="237" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.jpg?raw=true" />
+  <img width="500" height="237" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.png?raw=true" />
 </p>
 
 ---
