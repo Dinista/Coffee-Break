@@ -9,8 +9,8 @@ A robust platform for managing products, customers, and sales — **powered by M
 This system streamlines inventory management, enhances sales tracking, and leverages data-driven insights with interactive dashboards and predictive modeling.
 
 <p align="center">
-  <img width="500" height="237" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.jpg?raw=true" />
-  <img width="500" height="237" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.png?raw=true" />
+  <img width="400" height="189" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.jpg?raw=true" />
+  <img width="400" height="189" src="https://github.com/Dinista/Coffee-Break/blob/main/front-end/public/readme/image.png?raw=true" />
 </p>
 
 ---
